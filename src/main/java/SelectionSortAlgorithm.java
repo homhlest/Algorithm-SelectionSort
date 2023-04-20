@@ -31,3 +31,4 @@ public class SelectionSortAlgorithm {
         System.out.println("Selection sort algorithm result: \n" + Arrays.toString(arr));
     }
 }
+
