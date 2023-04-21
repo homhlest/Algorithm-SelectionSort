@@ -14,21 +14,22 @@ public class SelectionSortAlgorithm {
         int indexOfMinElement = 0;
 
         for (int i = 0; i < arr.length; i++) {
-            int sortedPartBorder = i;
-            int min = arr[sortedPartBorder];
-
-            while ((sortedPartBorder) < arr.length) { // searching the minimal element in the array
-                if (arr[sortedPartBorder] <= min) {
-                    min = arr[sortedPartBorder];
-                    indexOfMinElement = sortedPartBorder;
+            int pointer = i; // the border between sorted and unsorted part.
+            int edgeElementInSortedPart = arr[pointer];
+            // searching the minimal element starting from the pointer.
+            while (pointer < arr.length) {
+                if (arr[pointer] <= edgeElementInSortedPart) {
+                    edgeElementInSortedPart = arr[pointer];
+                    indexOfMinElement = pointer;
                 }
-                sortedPartBorder++;
+                pointer++;
             }
+            // swaps the elements of the array.
             int temp = arr[i];
-            arr[i] = min;
+            arr[i] = edgeElementInSortedPart;
             arr[indexOfMinElement] = temp;
         }
-        System.out.println("Selection sort algorithm result: \n" + Arrays.toString(arr));
+        System.out.println("Algorithm result: \n" + Arrays.toString(arr));
     }
 }
 
